@@ -2,123 +2,47 @@ namespace KeyboardApp
 {
     public partial class Form1 : Form
     {
-        public bool cap = true;
+        
+        public List<Button> buttonsList = new List<Button>();
         public Form1()
         {
             InitializeComponent();
+            buttonsList.Add(buttonA);
+            buttonsList.Add(buttonB);
+            buttonsList.Add(buttonC);
+            buttonsList.Add(buttonD);
+            buttonsList.Add(buttonE);
+            buttonsList.Add(buttonF);
+            buttonsList.Add(buttonG);
+            buttonsList.Add(buttonH);
+            buttonsList.Add(buttonI);
+            buttonsList.Add(buttonJ);
+            buttonsList.Add(buttonK);
+            buttonsList.Add(buttonL);
+            buttonsList.Add(buttonM);
+            buttonsList.Add(buttonN);
+            buttonsList.Add(buttonO);
+            buttonsList.Add(buttonP);
+            buttonsList.Add(buttonQ);
+            buttonsList.Add(buttonR);
+            buttonsList.Add(buttonS);
+            buttonsList.Add(buttonT);
+            buttonsList.Add(buttonU);
+            buttonsList.Add(buttonV);
+            buttonsList.Add(buttonW);
+            buttonsList.Add(buttonX);
+            buttonsList.Add(buttonY);
+            buttonsList.Add(buttonZ);
         }
 
         
         private void buttonShift_Click(object sender, EventArgs e)
         {
-            bool capShift = true;
-            //A
-            
-
-            this.buttonA.Text = (this.buttonA.Text == "a") ? this.buttonA.Text.ToUpper() : this.buttonA.Text.ToLower();
-
-
-            //B
-            this.buttonB.Text = (this.buttonB.Text == "b") ? this.buttonB.Text.ToUpper() : this.buttonB.Text.ToLower();
-
-
-            //C
-
-            this.buttonC.Text = (this.buttonC.Text == "c") ? this.buttonC.Text.ToUpper() : this.buttonC.Text.ToLower();
-
-
-            //D
-
-            this.buttonD.Text = (this.buttonD.Text == "d") ? this.buttonD.Text.ToUpper() : this.buttonD.Text.ToLower();
-
-
-            //E
-            this.buttonE.Text = (this.buttonE.Text == "e") ? this.buttonE.Text.ToUpper() : this.buttonE.Text.ToLower();           
-
-            //F
-
-            this.buttonF.Text = (this.buttonF.Text == "f") ? this.buttonF.Text.ToUpper() : this.buttonF.Text.ToLower();
-
-            //G
-
-            this.buttonG.Text = (this.buttonG.Text == "g") ? this.buttonG.Text.ToUpper() : this.buttonG.Text.ToLower();
-
-            //H
-
-            this.buttonH.Text = (this.buttonH.Text == "h") ? this.buttonH.Text.ToUpper() : this.buttonH.Text.ToLower();
-
-            //I
-
-            this.buttonI.Text = (this.buttonI.Text == "i") ? this.buttonI.Text.ToUpper() : this.buttonI.Text.ToLower();
-
-            //J
-
-            this.buttonJ.Text = (this.buttonJ.Text == "j") ? this.buttonJ.Text.ToUpper() : this.buttonJ.Text.ToLower();
-
-            //K
-
-            this.buttonK.Text = (this.buttonK.Text == "k") ? this.buttonK.Text.ToUpper() : this.buttonK.Text.ToLower();
-
-            //L
-
-            this.buttonL.Text = (this.buttonL.Text == "l") ? this.buttonL.Text.ToUpper() : this.buttonL.Text.ToLower();
-
-            //M
-
-            this.buttonM.Text = (this.buttonM.Text == "m") ? this.buttonM.Text.ToUpper() : this.buttonM.Text.ToLower();
-
-            //N
-
-            this.buttonN.Text = (this.buttonN.Text == "n") ? this.buttonN.Text.ToUpper() : this.buttonN.Text.ToLower();
-
-            //O
-
-            this.buttonO.Text = (this.buttonO.Text == "o") ? this.buttonO.Text.ToUpper() : this.buttonO.Text.ToLower();
-
-            //P
-            this.buttonP.Text = (this.buttonP.Text == "p") ? this.buttonP.Text.ToUpper() : this.buttonP.Text.ToLower();
-
-            //Q
-
-            this.buttonQ.Text = (this.buttonQ.Text == "q") ? this.buttonQ.Text.ToUpper() : this.buttonQ.Text.ToLower();
-
-            //R
-
-            this.buttonR.Text = (this.buttonR.Text == "r") ? this.buttonR.Text.ToUpper() : this.buttonR.Text.ToLower();
-
-            //S
-
-            this.buttonS.Text = (this.buttonS.Text == "s") ? this.buttonS.Text.ToUpper() : this.buttonS.Text.ToLower();
-
-            //T
-
-            this.buttonT.Text = (this.buttonT.Text == "t") ? this.buttonT.Text.ToUpper() : this.buttonT.Text.ToLower();
-
-            //U
-
-            this.buttonU.Text = (this.buttonU.Text == "u") ? this.buttonU.Text.ToUpper() : this.buttonU.Text.ToLower();
-
-            //V
-
-            this.buttonV.Text = (this.buttonV.Text == "v") ? this.buttonV.Text.ToUpper() : this.buttonV.Text.ToLower();
-
-            //W
-
-            this.buttonW.Text = (this.buttonW.Text == "w") ? this.buttonW.Text.ToUpper() : this.buttonW.Text.ToLower();
-
-            //X
-
-            this.buttonX.Text = (this.buttonX.Text == "x") ? this.buttonX.Text.ToUpper() : this.buttonX.Text.ToLower();
-
-            //Y
-
-            this.buttonY.Text = (this.buttonY.Text == "y") ? this.buttonY.Text.ToUpper() : this.buttonY.Text.ToLower();
-
-            //Z
-
-            this.buttonZ.Text = (this.buttonZ.Text == "z") ? this.buttonZ.Text.ToUpper() : this.buttonZ.Text.ToLower();
-           
-
+            for (int i = 0; i < buttonsList.Count; i++)
+            {
+                buttonsList[i].Text = (buttonsList[i].Text == buttonsList[i].Text.ToLower()) ? buttonsList[i].Text.ToUpper() : buttonsList[i].Text.ToLower();
+                
+            }
         }
 
         private void buttonA_Click(object sender, EventArgs e)
