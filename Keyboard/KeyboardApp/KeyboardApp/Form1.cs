@@ -459,32 +459,11 @@
             }
             else
             {
-                this.buttonA.Text = "A";
-                this.buttonB.Text = "B";
-                this.buttonC.Text = "C";
-                this.buttonD.Text = "D";
-                this.buttonE.Text = "E";
-                this.buttonF.Text = "F";
-                this.buttonG.Text = "G";
-                this.buttonH.Text = "H";
-                this.buttonI.Text = "I";
-                this.buttonJ.Text = "J";
-                this.buttonK.Text = "K";
-                this.buttonL.Text = "L";
-                this.buttonM.Text = "M";
-                this.buttonN.Text = "N";
-                this.buttonO.Text = "O";
-                this.buttonP.Text = "P";
-                this.buttonQ.Text = "Q";
-                this.buttonR.Text = "R";
-                this.buttonS.Text = "S";
-                this.buttonT.Text = "T";
-                this.buttonU.Text = "U";
-                this.buttonV.Text = "V";
-                this.buttonW.Text = "W";
-                this.buttonX.Text = "X";
-                this.buttonY.Text = "Y";
-                this.buttonZ.Text = "Z";
+                for (int i = 0, j = 65; i < this.buttonsList.Count && j <= 90; i++, j++)
+                {
+                    this.buttonsList[i].Text = ((char)j).ToString();
+                }
+                
             }   
             
         }
