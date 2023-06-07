@@ -4,148 +4,207 @@ namespace CalculatorApp
 {
     public partial class Form1 : Form
     {
-        public List<Button> buttonNumberList = new List<Button>();
-        public bool operationDevide = false;
-        public bool operationMultiple = false;
-        public bool operationPlus = false;
-        public bool operationMinus = false;
-        public double num1 = 0;
-        public double num2 = 0;
-        
+        private List<Button> buttonNumberList = new List<Button>();
+        private bool operationDevide = false;
+        private bool operationMultiply = false;
+        private bool operationPlus = false;
+        private bool operationMinus = false;
+        private double num1 = 0;
+        private double num2 = 0;
+        private double res = 0;
+
         public Form1()
         {
             InitializeComponent();
             this.operationBox.Enabled = false;
-            buttonNumberList.Add(this.button0);
-            buttonNumberList.Add(this.button1);
-            buttonNumberList.Add(this.button2);
-            buttonNumberList.Add(this.button3);
-            buttonNumberList.Add(this.button4);
-            buttonNumberList.Add(this.button5);
-            buttonNumberList.Add(this.button6);
-            buttonNumberList.Add(this.button7);
-            buttonNumberList.Add(this.button8);
-            buttonNumberList.Add(this.button9);
+            buttonNumberList.AddRange(new[]
+            {
+                button0, button1, button2, button3, button4, button5, button6, button7, button8, button9
+            });
 
             this.inputBox.Enabled = false;
-            //this.inputBox.Visible = true;
 
-            foreach (var item in this.buttonNumberList)            
+            foreach (var item in this.buttonNumberList)
+            {
                 item.MouseClick += buttonClick;
-            
+            }
 
             this.buttonAC.Click += (sender, e) =>
             {
                 this.inputBox.Text = string.Empty;
-                this.operationBox.Text = string.Empty;  
+                this.operationBox.Text = string.Empty;
             };
 
-            this.buttonplyuMinus.Click += (sender, e) =>
+            this.buttonPlusMinus.Click += (sender, e) =>
             {
-                if (this.inputBox.Text[0] != '-')
+                if (this.inputBox.Text.StartsWith("-"))
                 {
-                    string addMinus = "-";
-                    addMinus += this.inputBox.Text;
-                    this.inputBox.Text = addMinus;
+                    this.inputBox.Text = this.inputBox.Text.Substring(1);
                 }
                 else
-                    this.inputBox.Text = this.inputBox.Text[1..this.inputBox.Text.Length];               
-            };
-
-            this.buttonProcent.Click += (sender, e) =>
-            {
-                bool chekIsnum = double.TryParse(this.inputBox.Text, out double result);
-                result = result / 100;
-                this.inputBox.Text = Convert.ToString(result);
-            };
-
-            this.buttonDevide.Click += (sender, e) => {
-                if (this.inputBox.Text != string.Empty)
                 {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " / ";
-                    this.operationDevide = true;
-                    this.inputBox.Text = string.Empty;
+                    this.inputBox.Text = "-" + this.inputBox.Text;
                 }
             };
 
-            this.buttonMultiple.Click += (sender, e) => 
+            this.buttonPercent.Click += (sender, e) =>
             {
-                if (this.inputBox.Text != string.Empty)
+                if (double.TryParse(this.inputBox.Text, out double result))
                 {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " * ";
-                    this.operationMultiple = true;
-                    this.inputBox.Text = string.Empty;
+                    result = result / 100;
+                    this.inputBox.Text = result.ToString();
+                }
+            };
+
+            this.buttonDivide.Click += (sender, e) =>
+            {
+                if (!string.IsNullOrEmpty(this.inputBox.Text))
+                {
+                    if (double.TryParse(this.inputBox.Text, out this.num1))
+                    {
+                        this.operationBox.Text = this.inputBox.Text + " / ";
+                        this.operationDevide = true;
+                        this.inputBox.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid number format.");
+                    }
+                }
+            };
+
+            this.buttonMultiply.Click += (sender, e) =>
+            {
+                if (!string.IsNullOrEmpty(this.inputBox.Text))
+                {
+                    if (double.TryParse(this.inputBox.Text, out this.num1))
+                    {
+                        this.operationBox.Text = this.inputBox.Text + " * ";
+                        this.operationMultiply = true;
+                        this.inputBox.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid number format.");
+                    }
                 }
             };
 
             this.buttonPlus.Click += (sender, e) =>
             {
-                if (this.inputBox.Text != string.Empty)
+                if (!string.IsNullOrEmpty(this.inputBox.Text))
                 {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " + ";
-                    this.operationPlus = true;
-                    this.inputBox.Text = string.Empty;
+                    if (double.TryParse(this.inputBox.Text, out this.num1))
+                    {
+                        if (this.operationBox.Text == string.Empty)
+                        {
+                            this.operationBox.Text = this.inputBox.Text + " + ";
+                            this.operationPlus = true;
+                            this.inputBox.Text = string.Empty;
+                            this.res = this.num1;
+                        }
+                        else
+                        {
+                            if (double.TryParse(this.inputBox.Text, out this.num2))
+                            {
+                                this.res += this.num2;
+                                this.operationBox.Text = $"{this.res} + ";
+                                this.inputBox.Text = string.Empty;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid number format.");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid number format.");
+                    }
                 }
             };
 
             this.buttonMinus.Click += (sender, e) =>
             {
-                if (this.inputBox.Text != string.Empty)
+                if (!string.IsNullOrEmpty(this.inputBox.Text))
                 {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " - ";
-                    this.operationMinus = true;
-                    this.inputBox.Text = string.Empty;
+                    if (double.TryParse(this.inputBox.Text, out this.num1))
+                    {
+                        this.operationBox.Text = this.inputBox.Text + " - ";
+                        this.operationMinus = true;
+                        this.inputBox.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid number format.");
+                    }
                 }
             };
 
-
-            this.buttonRavno.Click += (sender, e) =>
+            this.buttonDot.Click += (sender, e) =>
             {
-                double res = 0;
-                bool chekIsnum2 = double.TryParse(this.inputBox.Text, out this.num2);
-                this.inputBox.Text = string.Empty;
-                this.operationBox.Text += Convert.ToString(num2);
-                if (this.operationDevide == true)
+                if (!this.inputBox.Text.Contains("."))
                 {
-                    res = num1 / num2;
-                    this.operationDevide = false;
+                    this.inputBox.Text += ".";
                 }
-                if (this.operationMultiple == true)
-                {
-                    res = num1 * num2;
-                    this.operationMultiple = false;
-                }
-                if (this.operationPlus == true)
-                {
-                    res = num1 + num2;
-                    this.operationPlus = false;
-                }
-                if (this.operationMinus == true)
-                {
-                    res = num1 - num2;
-                    this.operationMinus = false;
-                }
-                this.operationBox.Text = string.Empty;
-                this.inputBox.Text += Convert.ToString(res);
             };
 
+            this.buttonEquals.Click += (sender, e) =>
+            {
+                if (!string.IsNullOrEmpty(this.inputBox.Text))
+                {
+                    if (double.TryParse(this.inputBox.Text, out this.num2))
+                    {
+                        this.inputBox.Text = string.Empty;
+                        this.operationBox.Text += this.num2;
+                        this.num1 = this.res;
+
+                        if (this.operationDevide)
+                        {
+                            this.res = num1 / num2;
+                            this.operationDevide = false;
+                        }
+
+                        if (this.operationMultiply)
+                        {
+                            this.res = num1 * num2;
+                            this.operationMultiply = false;
+                        }
+
+                        if (this.operationPlus)
+                        {
+                            this.res = num1 + num2;
+                            this.operationPlus = false;
+                        }
+
+                        if (this.operationMinus)
+                        {
+                            this.res = num1 - num2;
+                            this.operationMinus = false;
+                        }
+
+                        this.operationBox.Text += " = ";
+                        this.inputBox.Text += this.res.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid number format.");
+                    }
+                }
+            };
         }
 
-
-
-        public void buttonClick(object sender, EventArgs e)
+        private void buttonClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (this.inputBox.Text.Length <= 10)
+            {
                 this.inputBox.Text += button.Text;
+            }
             else
+            {
                 MessageBox.Show("Max size!");
-            
-        }       
-
+            }
+        }
     }
 }

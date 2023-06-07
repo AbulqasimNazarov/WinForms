@@ -37,16 +37,16 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.buttonTochka = new System.Windows.Forms.Button();
+            this.buttonDot = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.buttonRavno = new System.Windows.Forms.Button();
+            this.buttonEquals = new System.Windows.Forms.Button();
             this.buttonAC = new System.Windows.Forms.Button();
-            this.buttonplyuMinus = new System.Windows.Forms.Button();
-            this.buttonProcent = new System.Windows.Forms.Button();
-            this.buttonDevide = new System.Windows.Forms.Button();
-            this.buttonMultiple = new System.Windows.Forms.Button();
+            this.buttonPlusMinus = new System.Windows.Forms.Button();
+            this.buttonPercent = new System.Windows.Forms.Button();
+            this.buttonDivide = new System.Windows.Forms.Button();
+            this.buttonMultiply = new System.Windows.Forms.Button();
             this.buttonMinus = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -156,15 +156,15 @@
             // 
             // buttonTochka
             // 
-            this.buttonTochka.BackColor = System.Drawing.Color.DimGray;
-            this.buttonTochka.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonTochka.ForeColor = System.Drawing.Color.Black;
-            this.buttonTochka.Location = new System.Drawing.Point(168, 445);
-            this.buttonTochka.Name = "buttonTochka";
-            this.buttonTochka.Size = new System.Drawing.Size(81, 75);
-            this.buttonTochka.TabIndex = 9;
-            this.buttonTochka.Text = ".";
-            this.buttonTochka.UseVisualStyleBackColor = false;
+            this.buttonDot.BackColor = System.Drawing.Color.DimGray;
+            this.buttonDot.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonDot.ForeColor = System.Drawing.Color.Black;
+            this.buttonDot.Location = new System.Drawing.Point(168, 445);
+            this.buttonDot.Name = "buttonDot";
+            this.buttonDot.Size = new System.Drawing.Size(81, 75);
+            this.buttonDot.TabIndex = 9;
+            this.buttonDot.Text = ".";
+            this.buttonDot.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
@@ -204,15 +204,15 @@
             // 
             // buttonRavno
             // 
-            this.buttonRavno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.buttonRavno.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonRavno.ForeColor = System.Drawing.Color.White;
-            this.buttonRavno.Location = new System.Drawing.Point(250, 446);
-            this.buttonRavno.Name = "buttonRavno";
-            this.buttonRavno.Size = new System.Drawing.Size(81, 75);
-            this.buttonRavno.TabIndex = 13;
-            this.buttonRavno.Text = "=";
-            this.buttonRavno.UseVisualStyleBackColor = false;
+            this.buttonEquals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonEquals.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonEquals.ForeColor = System.Drawing.Color.White;
+            this.buttonEquals.Location = new System.Drawing.Point(250, 446);
+            this.buttonEquals.Name = "buttonEquals";
+            this.buttonEquals.Size = new System.Drawing.Size(81, 75);
+            this.buttonEquals.TabIndex = 13;
+            this.buttonEquals.Text = "=";
+            this.buttonEquals.UseVisualStyleBackColor = false;
             // 
             // buttonAC
             // 
@@ -228,51 +228,51 @@
             // 
             // buttonplyuMinus
             // 
-            this.buttonplyuMinus.BackColor = System.Drawing.Color.Silver;
-            this.buttonplyuMinus.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonplyuMinus.ForeColor = System.Drawing.Color.Black;
-            this.buttonplyuMinus.Location = new System.Drawing.Point(86, 138);
-            this.buttonplyuMinus.Name = "buttonplyuMinus";
-            this.buttonplyuMinus.Size = new System.Drawing.Size(81, 75);
-            this.buttonplyuMinus.TabIndex = 15;
-            this.buttonplyuMinus.Text = "+/-";
-            this.buttonplyuMinus.UseVisualStyleBackColor = false;
+            this.buttonPlusMinus.BackColor = System.Drawing.Color.Silver;
+            this.buttonPlusMinus.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonPlusMinus.ForeColor = System.Drawing.Color.Black;
+            this.buttonPlusMinus.Location = new System.Drawing.Point(86, 138);
+            this.buttonPlusMinus.Name = "buttonPlusMinus";
+            this.buttonPlusMinus.Size = new System.Drawing.Size(81, 75);
+            this.buttonPlusMinus.TabIndex = 15;
+            this.buttonPlusMinus.Text = "+/-";
+            this.buttonPlusMinus.UseVisualStyleBackColor = false;
             // 
             // buttonProcent
             // 
-            this.buttonProcent.BackColor = System.Drawing.Color.Silver;
-            this.buttonProcent.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonProcent.ForeColor = System.Drawing.Color.Black;
-            this.buttonProcent.Location = new System.Drawing.Point(168, 138);
-            this.buttonProcent.Name = "buttonProcent";
-            this.buttonProcent.Size = new System.Drawing.Size(81, 75);
-            this.buttonProcent.TabIndex = 16;
-            this.buttonProcent.Text = "%";
-            this.buttonProcent.UseVisualStyleBackColor = false;
+            this.buttonPercent.BackColor = System.Drawing.Color.Silver;
+            this.buttonPercent.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonPercent.ForeColor = System.Drawing.Color.Black;
+            this.buttonPercent.Location = new System.Drawing.Point(168, 138);
+            this.buttonPercent.Name = "buttonPercent";
+            this.buttonPercent.Size = new System.Drawing.Size(81, 75);
+            this.buttonPercent.TabIndex = 16;
+            this.buttonPercent.Text = "%";
+            this.buttonPercent.UseVisualStyleBackColor = false;
             // 
             // buttonDevide
             // 
-            this.buttonDevide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.buttonDevide.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonDevide.ForeColor = System.Drawing.Color.White;
-            this.buttonDevide.Location = new System.Drawing.Point(250, 138);
-            this.buttonDevide.Name = "buttonDevide";
-            this.buttonDevide.Size = new System.Drawing.Size(81, 75);
-            this.buttonDevide.TabIndex = 17;
-            this.buttonDevide.Text = "/";
-            this.buttonDevide.UseVisualStyleBackColor = false;
+            this.buttonDivide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonDivide.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonDivide.ForeColor = System.Drawing.Color.White;
+            this.buttonDivide.Location = new System.Drawing.Point(250, 138);
+            this.buttonDivide.Name = "buttonDivide";
+            this.buttonDivide.Size = new System.Drawing.Size(81, 75);
+            this.buttonDivide.TabIndex = 17;
+            this.buttonDivide.Text = "/";
+            this.buttonDivide.UseVisualStyleBackColor = false;
             // 
             // buttonMultiple
             // 
-            this.buttonMultiple.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.buttonMultiple.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonMultiple.ForeColor = System.Drawing.Color.White;
-            this.buttonMultiple.Location = new System.Drawing.Point(250, 216);
-            this.buttonMultiple.Name = "buttonMultiple";
-            this.buttonMultiple.Size = new System.Drawing.Size(81, 75);
-            this.buttonMultiple.TabIndex = 18;
-            this.buttonMultiple.Text = "X";
-            this.buttonMultiple.UseVisualStyleBackColor = false;
+            this.buttonMultiply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonMultiply.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonMultiply.ForeColor = System.Drawing.Color.White;
+            this.buttonMultiply.Location = new System.Drawing.Point(250, 216);
+            this.buttonMultiply.Name = "buttonMultiply";
+            this.buttonMultiply.Size = new System.Drawing.Size(81, 75);
+            this.buttonMultiply.TabIndex = 18;
+            this.buttonMultiply.Text = "X";
+            this.buttonMultiply.UseVisualStyleBackColor = false;
             // 
             // buttonMinus
             // 
@@ -306,16 +306,16 @@
             this.ClientSize = new System.Drawing.Size(333, 526);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.buttonMinus);
-            this.Controls.Add(this.buttonMultiple);
-            this.Controls.Add(this.buttonDevide);
-            this.Controls.Add(this.buttonProcent);
-            this.Controls.Add(this.buttonplyuMinus);
+            this.Controls.Add(this.buttonMultiply);
+            this.Controls.Add(this.buttonDivide);
+            this.Controls.Add(this.buttonPercent);
+            this.Controls.Add(this.buttonPlusMinus);
             this.Controls.Add(this.buttonAC);
-            this.Controls.Add(this.buttonRavno);
+            this.Controls.Add(this.buttonEquals);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.buttonTochka);
+            this.Controls.Add(this.buttonDot);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -343,16 +343,16 @@
         private Button button4;
         private Button button5;
         private Button button6;
-        private Button buttonTochka;
+        private Button buttonDot;
         private Button button7;
         private Button button8;
         private Button button9;
-        private Button buttonRavno;
+        private Button buttonEquals;
         private Button buttonAC;
-        private Button buttonplyuMinus;
-        private Button buttonProcent;
-        private Button buttonDevide;
-        private Button buttonMultiple;
+        private Button buttonPlusMinus;
+        private Button buttonPercent;
+        private Button buttonDivide;
+        private Button buttonMultiply;
         private Button buttonMinus;
         private Button buttonPlus;
     }
