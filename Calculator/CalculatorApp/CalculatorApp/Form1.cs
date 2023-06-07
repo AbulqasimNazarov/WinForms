@@ -62,9 +62,33 @@ namespace CalculatorApp
                 {
                     if (double.TryParse(this.inputBox.Text, out this.num1))
                     {
-                        this.operationBox.Text = this.inputBox.Text + " / ";
-                        this.operationDevide = true;
-                        this.inputBox.Text = string.Empty;
+                        if (this.operationBox.Text == string.Empty)
+                        {
+                            this.operationBox.Text = this.inputBox.Text + " / ";
+                            //this.operationDivide = true;
+                            this.inputBox.Text = string.Empty;
+                            this.res = this.num1;
+                        }
+                        else
+                        {
+                            if (double.TryParse(this.inputBox.Text, out this.num2))
+                            {
+                                if (this.num2 != 0)
+                                {
+                                    this.res /= this.num2;
+                                    this.operationBox.Text = $"{this.res} / ";
+                                    this.inputBox.Text = string.Empty;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Division by zero is not allowed.");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid number format.");
+                            }
+                        }
                     }
                     else
                     {
@@ -79,9 +103,26 @@ namespace CalculatorApp
                 {
                     if (double.TryParse(this.inputBox.Text, out this.num1))
                     {
-                        this.operationBox.Text = this.inputBox.Text + " * ";
-                        this.operationMultiply = true;
-                        this.inputBox.Text = string.Empty;
+                        if (this.operationBox.Text == string.Empty)
+                        {
+                            this.operationBox.Text = this.inputBox.Text + " * ";
+                            this.operationMultiply = true;
+                            this.inputBox.Text = string.Empty;
+                            this.res = this.num1;
+                        }
+                        else
+                        {
+                            if (double.TryParse(this.inputBox.Text, out this.num2))
+                            {
+                                this.res *= this.num2;
+                                this.operationBox.Text = $"{this.res} * ";
+                                this.inputBox.Text = string.Empty;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid number format.");
+                            }
+                        }
                     }
                     else
                     {
@@ -130,9 +171,26 @@ namespace CalculatorApp
                 {
                     if (double.TryParse(this.inputBox.Text, out this.num1))
                     {
-                        this.operationBox.Text = this.inputBox.Text + " - ";
-                        this.operationMinus = true;
-                        this.inputBox.Text = string.Empty;
+                        if (this.operationBox.Text == string.Empty)
+                        {
+                            this.operationBox.Text = this.inputBox.Text + " - ";
+                            this.operationMinus = true;
+                            this.inputBox.Text = string.Empty;
+                            this.res = this.num1;
+                        }
+                        else
+                        {
+                            if (double.TryParse(this.inputBox.Text, out this.num2))
+                            {
+                                this.res -= this.num2;
+                                this.operationBox.Text = $"{this.res} - ";
+                                this.inputBox.Text = string.Empty;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid number format.");
+                            }
+                        }
                     }
                     else
                     {
