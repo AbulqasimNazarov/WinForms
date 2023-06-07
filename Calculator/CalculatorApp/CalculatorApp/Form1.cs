@@ -5,7 +5,7 @@ namespace CalculatorApp
     public partial class Form1 : Form
     {
         private List<Button> buttonNumberList = new List<Button>();
-        private bool operationDevide = false;
+        private bool operationDivide = false;
         private bool operationMultiply = false;
         private bool operationPlus = false;
         private bool operationMinus = false;
@@ -207,6 +207,8 @@ namespace CalculatorApp
                 }
             };
 
+            int equalsClickCount = 0;
+
             this.buttonEquals.Click += (sender, e) =>
             {
                 if (!string.IsNullOrEmpty(this.inputBox.Text))
@@ -217,32 +219,51 @@ namespace CalculatorApp
                         this.operationBox.Text += this.num2;
                         this.num1 = this.res;
 
-                        if (this.operationDevide)
+                        if (this.operationDivide)
                         {
-                            this.res = num1 / num2;
-                            this.operationDevide = false;
+                            if (this.num2 != 0)
+                            {
+                                this.res /= this.num2;
+                                this.operationDivide = false;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Division by zero is not allowed.");
+                                return;
+                            }
                         }
 
                         if (this.operationMultiply)
                         {
-                            this.res = num1 * num2;
+                            this.res *= this.num2;
                             this.operationMultiply = false;
                         }
 
                         if (this.operationPlus)
                         {
-                            this.res = num1 + num2;
+                            this.res += this.num2;
                             this.operationPlus = false;
                         }
 
                         if (this.operationMinus)
                         {
-                            this.res = num1 - num2;
+                            this.res -= this.num2;
                             this.operationMinus = false;
                         }
 
-                        this.operationBox.Text += " = ";
-                        this.inputBox.Text += this.res.ToString();
+                        if (equalsClickCount >= 2)
+                        {
+                            this.operationBox.Text = this.res.ToString();
+                        }
+                        else
+                        {
+                            this.operationBox.Text = string.Empty;
+                            this.operationBox.Text += this.res.ToString();
+                            this.operationBox.Text += $" - {this.num2} = ";
+                        }
+
+                        this.inputBox.Text = this.res.ToString();
+                        equalsClickCount++;
                     }
                     else
                     {

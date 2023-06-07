@@ -49,6 +49,7 @@
             this.buttonMultiply = new System.Windows.Forms.Button();
             this.buttonMinus = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
+            this.historyBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // operationBox
@@ -154,7 +155,7 @@
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // buttonTochka
+            // buttonDot
             // 
             this.buttonDot.BackColor = System.Drawing.Color.DimGray;
             this.buttonDot.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -202,7 +203,7 @@
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = false;
             // 
-            // buttonRavno
+            // buttonEquals
             // 
             this.buttonEquals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.buttonEquals.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -226,7 +227,7 @@
             this.buttonAC.Text = "AC";
             this.buttonAC.UseVisualStyleBackColor = false;
             // 
-            // buttonplyuMinus
+            // buttonPlusMinus
             // 
             this.buttonPlusMinus.BackColor = System.Drawing.Color.Silver;
             this.buttonPlusMinus.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -238,7 +239,7 @@
             this.buttonPlusMinus.Text = "+/-";
             this.buttonPlusMinus.UseVisualStyleBackColor = false;
             // 
-            // buttonProcent
+            // buttonPercent
             // 
             this.buttonPercent.BackColor = System.Drawing.Color.Silver;
             this.buttonPercent.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -250,7 +251,7 @@
             this.buttonPercent.Text = "%";
             this.buttonPercent.UseVisualStyleBackColor = false;
             // 
-            // buttonDevide
+            // buttonDivide
             // 
             this.buttonDivide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.buttonDivide.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -262,7 +263,7 @@
             this.buttonDivide.Text = "/";
             this.buttonDivide.UseVisualStyleBackColor = false;
             // 
-            // buttonMultiple
+            // buttonMultiply
             // 
             this.buttonMultiply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.buttonMultiply.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -298,12 +299,23 @@
             this.buttonPlus.Text = "+";
             this.buttonPlus.UseVisualStyleBackColor = false;
             // 
+            // historyBox
+            // 
+            this.historyBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.historyBox.FormattingEnabled = true;
+            this.historyBox.ItemHeight = 31;
+            this.historyBox.Location = new System.Drawing.Point(337, 12);
+            this.historyBox.Name = "historyBox";
+            this.historyBox.Size = new System.Drawing.Size(294, 500);
+            this.historyBox.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(333, 526);
+            this.ClientSize = new System.Drawing.Size(643, 526);
+            this.Controls.Add(this.historyBox);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.buttonMinus);
             this.Controls.Add(this.buttonMultiply);
@@ -355,5 +367,6 @@
         private Button buttonMultiply;
         private Button buttonMinus;
         private Button buttonPlus;
+        private ListBox historyBox;
     }
 }
