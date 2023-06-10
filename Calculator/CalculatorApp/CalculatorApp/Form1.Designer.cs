@@ -272,7 +272,7 @@
             this.buttonMultiply.Name = "buttonMultiply";
             this.buttonMultiply.Size = new System.Drawing.Size(81, 75);
             this.buttonMultiply.TabIndex = 18;
-            this.buttonMultiply.Text = "X";
+            this.buttonMultiply.Text = "*";
             this.buttonMultiply.UseVisualStyleBackColor = false;
             // 
             // buttonMinus
