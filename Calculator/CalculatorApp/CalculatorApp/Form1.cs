@@ -1,5 +1,10 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Text.Json;
+
 namespace CalculatorApp
 {
+
+   
     public partial class Form1 : Form
     {
         public List<Button> buttonNumberList = new List<Button>();
@@ -8,35 +13,21 @@ namespace CalculatorApp
         public bool operationPlus = false;
         public bool operationMinus = false;
         public double num1 = 0;
-        public double num2 = 0;
-        public int clickDivideCount = 0;
-        public int clickMultiplyCount = 0;
-        public int clickPlusCount = 0;
-        public int clickMinusCount = 0;
+        public int operationCount = 0;
+        
 
-        public int Num1 { get; set; }
-        public int Num2 { get; set; }
-
-
-        public double res = 0;
 
         public Form1()
         {
             InitializeComponent();
             this.operationBox.Enabled = false;
-            buttonNumberList.Add(this.button0);
-            buttonNumberList.Add(this.button1);
-            buttonNumberList.Add(this.button2);
-            buttonNumberList.Add(this.button3);
-            buttonNumberList.Add(this.button4);
-            buttonNumberList.Add(this.button5);
-            buttonNumberList.Add(this.button6);
-            buttonNumberList.Add(this.button7);
-            buttonNumberList.Add(this.button8);
-            buttonNumberList.Add(this.button9);
+            buttonNumberList.AddRange(new[]
+            {
+                this.button0, this.button1, this.button2, this.button3, this.button4, this.button5, this.button6, this.button7, this.button8, this.button9
+            });
+
 
             this.inputBox.Enabled = false;
-            //this.inputBox.Visible = true;
 
             foreach (var item in this.buttonNumberList)
                 item.MouseClick += buttonClick;
@@ -46,13 +37,7 @@ namespace CalculatorApp
             {
                 this.inputBox.Text = string.Empty;
                 this.operationBox.Text = string.Empty;
-                this.num1 = 0;
-                this.num2 = 0;
-                this.res = 0;
-                this.clickDivideCount = 0;
-                this.clickMultiplyCount = 0;
-                this.clickPlusCount = 0;
-                this.clickMinusCount = 0;
+                
             };
 
             this.buttonPlusMinus.Click += (sender, e) =>
@@ -67,116 +52,6 @@ namespace CalculatorApp
                     this.inputBox.Text = this.inputBox.Text[1..this.inputBox.Text.Length];
             };
 
-            this.buttonPercent.Click += (sender, e) =>
-            {
-                bool chekIsnum = double.TryParse(this.inputBox.Text, out double result);
-                result = result / 100;
-                this.inputBox.Text = Convert.ToString(result);
-            };
-
-            this.buttonDivide.Click += (sender, e) => {
-                
-                if (this.inputBox.Text != string.Empty && this.clickDivideCount == 0)
-                {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " / ";
-                    this.operationDevide = true;
-                    this.inputBox.Text = string.Empty;
-                    this.clickDivideCount++;
-                }
-                else if(this.inputBox.Text != string.Empty && this.clickDivideCount > 0)
-                {
-                    bool chekIsnum2 = double.TryParse(this.inputBox.Text, out this.num2);
-                    this.num1 /= num2;
-                    this.operationBox.Text = $@"{this.num1} / ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickDivideCount++;
-                }
-                else
-                {
-                    this.num1 /= this.num2;
-                    this.operationBox.Text = $@"{this.num1} * ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickDivideCount++;
-                }
-            };
-
-            this.buttonMultiply.Click += (sender, e) =>
-            {
-                if (this.operationBox.Text == string.Empty && this.clickMultiplyCount == 0)
-                {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " * ";
-                    this.operationMultiple = true;
-                    this.inputBox.Text = string.Empty;
-                    this.clickMultiplyCount++;
-                }
-                else if (this.inputBox.Text != string.Empty && this.clickMultiplyCount > 0)
-                {
-                    bool chekIsnum2 = double.TryParse(this.inputBox.Text, out this.num2);
-                    this.num1 *= num2;
-                    this.operationBox.Text = $@"{this.num1} * ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickMultiplyCount++;
-                }
-                else
-                {
-                    this.num1 *= this.num2;
-                    this.operationBox.Text = $@"{this.res} * ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickMultiplyCount++;
-                }
-            };
-
-            this.buttonPlus.Click += (sender, e) =>
-            {
-
-
-                if (this.operationBox.Text == string.Empty && this.clickPlusCount == 0)
-                {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " + ";
-                    this.operationPlus = true;
-                    this.inputBox.Text = string.Empty;
-                    this.clickPlusCount++;
-                }
-                else if (this.inputBox.Text != string.Empty && this.clickPlusCount > 0)
-                {
-                    bool chekIsnum2 = double.TryParse(this.inputBox.Text, out this.num2);
-                    this.num1 += num2;
-                    this.operationBox.Text = $@"{this.num1} + ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickPlusCount++;
-                }
-                else
-                {
-                    this.num1 += this.num2;
-                    this.operationBox.Text = $@"{this.res} + ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickPlusCount++;
-                }
-            };
-
-            this.buttonMinus.Click += (sender, e) =>
-            {
-                if (this.operationBox.Text == string.Empty && this.clickMinusCount == 0)
-                {
-                    bool chekIsnum1 = double.TryParse(this.inputBox.Text, out this.num1);
-                    this.operationBox.Text = this.inputBox.Text + " - ";
-                    this.operationMinus = true;
-                    this.inputBox.Text = string.Empty;
-                    this.clickMinusCount++;
-                }
-                else if (this.inputBox.Text != string.Empty && this.clickMinusCount > 0)
-                {
-                    bool chekIsnum2 = double.TryParse(this.inputBox.Text, out this.num2);
-                    this.num1 -= num2;
-                    this.operationBox.Text = $@"{this.num1} - ";
-                    this.inputBox.Text = string.Empty;
-                    this.clickMinusCount++;
-                }
-            };
-
             this.buttonDot.Click += (sender, e) =>
             {
                 if (this.inputBox.Text.Contains(".") == false)
@@ -185,48 +60,53 @@ namespace CalculatorApp
                 }
             };
 
+            this.buttonPercent.Click += (sender, e) =>
+            {
+                bool chekIsnum = double.TryParse(this.inputBox.Text, out double result);
+                result = result / 100;
+                this.inputBox.Text = Convert.ToString(result);
+            };
+
+            this.buttonMinus.Click += buttonOperation;
+            this.buttonPlus.Click += buttonOperation;
+            this.buttonDivide.Click += buttonOperation;
+            this.buttonMultiply.Click += buttonOperation;
+
 
             this.buttonEquals.Click += (sender, e) =>
             {
-                this.clickDivideCount = 0;
-                this.clickPlusCount = 0;
-                this.clickMultiplyCount = 0;
-                bool chekIsnum2 = double.TryParse(this.inputBox.Text, out this.num2);
+
+                double num2 = double.Parse(this.inputBox.Text);
                 this.inputBox.Text = string.Empty;
-                this.operationBox.Text += $@"{num2}";
-                //this.num1 = this.res;
+                if (this.operationMinus == true)
+                {
+                    double result = this.num1 - num2;
+                    this.operationBox.Text = $"{this.num1} - {num2} = {result}";
+                    this.operationMinus = false;
+                }
                 if (this.operationDevide == true)
                 {
-                    this.res = num1 / num2;
+                    double result = this.num1 / num2;
+                    this.operationBox.Text = $"{this.num1} / {num2} = {result}";
                     this.operationDevide = false;
                 }
                 if (this.operationMultiple == true)
                 {
-                    this.res = num1 * num2;
+                    double result = this.num1 * num2;
+                    this.operationBox.Text = $"{this.num1} * {num2} = {result}";
                     this.operationMultiple = false;
                 }
-                if (this.operationPlus == true)
+                if (this.operationPlus)
                 {
-                    this.res = num1 + num2;
+                    double result = this.num1 + num2;
+                    this.operationBox.Text = $"{this.num1} + {num2} = {result}";
                     this.operationPlus = false;
                 }
-                if (this.operationMinus == true)
-                {
-                    this.res = num1 - num2;
-                    this.operationMinus = false;
-                }
-                if (this.operationBox.Text.Contains('=') == false)
-                {
-                    this.operationBox.Text += $" = ";
-                    this.inputBox.Text += Convert.ToString(res);
-
-                }
+                this.historyBox.Items.Add(this.operationBox.Text);
+                Valuess.SavetoList(this.operationBox.Text);
+                Valuess.SaveJson();
             };
-
         }
-
-
-
         public void buttonClick(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -235,7 +115,45 @@ namespace CalculatorApp
             else
                 MessageBox.Show("Max size!");
 
+
+        }
+        public void buttonOperation(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            this.num1 = Convert.ToDouble(this.inputBox.Text);
+            if (button.Text == "-")
+            {               
+                this.operationBox.Text = $"{this.num1} - ";
+                this.inputBox.Text = string.Empty;
+                this.operationMinus = true;
+            }
+            if (button.Text == "/")
+            {
+                this.operationBox.Text = $"{this.num1} / ";
+                this.inputBox.Text = string.Empty;
+                this.operationDevide = true;
+            }
+            if (button.Text == "+")
+            {
+                this.operationBox.Text = $"{this.num1} + ";
+                this.inputBox.Text = string.Empty;
+                this.operationPlus = true;
+            }
+            if (button.Text == "*")
+            {
+                this.operationBox.Text = $"{this.num1} * ";
+                this.inputBox.Text = string.Empty;
+                this.operationMultiple = true;
+            }
         }
 
+        private void buttonHistory_Click(object sender, EventArgs e)
+        {
+            var loadedjson = Valuess.LoadJson("historyBox.json");
+            foreach (var item in loadedjson)
+            {
+                this.historyBox.Items.Add(item);
+            }
+        }
     }
 }

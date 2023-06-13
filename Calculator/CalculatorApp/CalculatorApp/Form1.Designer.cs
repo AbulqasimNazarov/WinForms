@@ -50,6 +50,7 @@
             this.buttonMinus = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.historyBox = new System.Windows.Forms.ListBox();
+            this.buttonHistory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // operationBox
@@ -306,8 +307,18 @@
             this.historyBox.ItemHeight = 31;
             this.historyBox.Location = new System.Drawing.Point(337, 12);
             this.historyBox.Name = "historyBox";
-            this.historyBox.Size = new System.Drawing.Size(294, 500);
+            this.historyBox.Size = new System.Drawing.Size(294, 407);
             this.historyBox.TabIndex = 21;
+            // 
+            // buttonHistory
+            // 
+            this.buttonHistory.Location = new System.Drawing.Point(337, 445);
+            this.buttonHistory.Name = "buttonHistory";
+            this.buttonHistory.Size = new System.Drawing.Size(294, 69);
+            this.buttonHistory.TabIndex = 22;
+            this.buttonHistory.Text = "Sow History";
+            this.buttonHistory.UseVisualStyleBackColor = true;
+            this.buttonHistory.Click += new System.EventHandler(this.buttonHistory_Click);
             // 
             // Form1
             // 
@@ -315,6 +326,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(643, 526);
+            this.Controls.Add(this.buttonHistory);
             this.Controls.Add(this.historyBox);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.buttonMinus);
@@ -368,5 +380,6 @@
         private Button buttonMinus;
         private Button buttonPlus;
         private ListBox historyBox;
+        private Button buttonHistory;
     }
 }
