@@ -26,7 +26,7 @@ namespace CalculatorApp
                 this.button0, this.button1, this.button2, this.button3, this.button4, this.button5, this.button6, this.button7, this.button8, this.button9
             });
 
-
+            
             this.inputBox.Enabled = false;
 
             foreach (var item in this.buttonNumberList)

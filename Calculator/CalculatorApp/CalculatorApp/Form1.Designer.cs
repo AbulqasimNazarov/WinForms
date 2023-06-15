@@ -350,7 +350,7 @@
             this.Controls.Add(this.inputBox);
             this.Controls.Add(this.operationBox);
             this.Name = "Form1";
-            this.Text = "v";
+            this.Text = "HesenBambiliCalculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
