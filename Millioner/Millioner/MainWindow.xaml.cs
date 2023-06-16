@@ -22,6 +22,14 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
+        
+    }
+
+    public void ButtonStart_Click(object sender, RoutedEventArgs e)
+    {
+        this.Loqopic.Visibility = Visibility.Hidden;
+        this.buttonStart.Visibility = Visibility.Hidden;
         QuestionData q = new QuestionData();
         q.AddQuestionsToList();
         this.questionBox.Text = q.questionList[0];
@@ -29,12 +37,5 @@ public partial class MainWindow : Window
         this.buttonB.Content += q.answerList[1];
         this.buttonC.Content += q.answerList[2];
         this.buttonD.Content += q.answerList[3];
-               
-    }
-
-    public void ButtonStart_Click(object sender, RoutedEventArgs e)
-    {
-        this.Loqopic.Visibility = Visibility.Hidden;
-        this.buttonStart.Visibility = Visibility.Hidden;
     }
 }

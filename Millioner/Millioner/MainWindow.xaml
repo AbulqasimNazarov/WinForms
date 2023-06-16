@@ -23,28 +23,36 @@
 
             <TextBox x:Name="questionBox"
                          FontSize="17"
-                     Background="Aqua"/>
-            <ListBox Grid.Row="1" Grid.Column="1"/>
-            <Image x:Name="Loqopic" Grid.Row="1" Grid.Column="1" Source="C:\Users\User\Desktop\milyonerLoqo.png"/>
-
+                     Background="CadetBlue"/>
+            <ListBox x:Name="questionListBox"
+                     Grid.Row="1" 
+                     Grid.Column="1"
+                     Background="CadetBlue"/>
+            
 
 
         </Grid>
         <UniformGrid Grid.Row="1" Columns="2" Rows="2">
             
             
-            <Button x:Name="buttonA" Content="A:  " FontSize="30" Background="Aquamarine"/>
-            <Button x:Name="buttonB" Content="B:  " FontSize="30" Background="Aquamarine"/>
-            <Button x:Name="buttonC" Content="C:  " FontSize="30" Background="Aquamarine"/>
-            <Button x:Name="buttonD" Content="D:  " FontSize="30" Background="Aquamarine"/>
+            <Button x:Name="buttonA" Content="A:  " 
+                    FontSize="30" Background="Aquamarine"/>
+            <Button x:Name="buttonB" Content="B:  " 
+                    FontSize="30" Background="Aquamarine"/>
+            <Button x:Name="buttonC" Content="C:  " 
+                    FontSize="30" Background="Aquamarine"/>
+            <Button x:Name="buttonD" Content="D:  " 
+                    FontSize="30" Background="Aquamarine"/>
         </UniformGrid>
 
         <Button x:Name="buttonStart" Grid.Row="1"
-                Background="LightPink"
+                Background="FloralWhite"
                 FontSize="100"
+                
                 Content="Start" 
-                Click="ButtonStart_Click"/>
+                Click="ButtonStart_Click" FontWeight="ExtraBold" FontFamily="Impact"/>
 
+        <Image x:Name="Loqopic" Grid.Row="0" Grid.Column="1" Source="C:\Users\User\Desktop\milyonerLoqo.png"/>
 
 
 
